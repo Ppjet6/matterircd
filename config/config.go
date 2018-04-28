@@ -22,6 +22,7 @@ type Config struct {
 	DefaultServer string
 	DefaultTeam   string
 	Restrict      string
+	RestrictTeams string
 	JoinExclude   []string
 	JoinInclude   []string
 	PartFake      bool
@@ -37,6 +38,7 @@ type Settings struct {
 	JoinMpImOnTalk bool
 	PartFake       bool
 	Restrict       []string
+	RestrictTeams  []string
 	SkipTLSVerify  bool
 	UseDisplayName bool
 }
@@ -61,6 +63,9 @@ func LoadConfig(cfgfile string, defaultcfg Config) *Config {
 	}
 	if defaultcfg.Mattermost.DefaultServer == "" {
 		defaultcfg.Mattermost.DefaultServer = defaultcfg.DefaultServer
+	}
+	if len(defaultcfg.Mattermost.RestrictTeams) == 0 {
+		defaultcfg.Mattermost.RestrictTeams = strings.Fields(defaultcfg.RestrictTeams)
 	}
 	if defaultcfg.Mattermost.DefaultTeam == "" {
 		defaultcfg.Mattermost.DefaultTeam = defaultcfg.DefaultTeam
