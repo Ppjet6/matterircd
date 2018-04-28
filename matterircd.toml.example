@@ -43,6 +43,10 @@ PartFake = true
 #Array, default empty
 Restrict = ["chat.mycompany.com"]
 
+#only allow connection to specified mattermost teams.
+#Array, default empty
+RestrictTeams = ["myteam"]
+
 #skip verification of mattermost certificate chain and hostname (default false)
 SkipTLSVerify = false
 
@@ -63,6 +67,10 @@ JoinMpImOnTalk = false
 #team isn't in the Restrict list, the user will be disconnected.
 #Array, default empty 
 Restrict = ["myslack"]
+
+#only allow connection to specified slack teams.
+#Array, default empty
+RestrictTeams = ["myteam"]
 
 # This will add the slack DisplayName as prefix to every message if the DisplayName differs from the Username
 # More info about username/displayname see https://api.slack.com/changelog/2017-09-the-one-about-usernames
